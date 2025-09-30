@@ -1,0 +1,28 @@
+{
+  "templates": [
+    {
+      "id": "tpl_action_01",
+      "name": "قالب أكشن",
+      "description": "قالب أساسي لفيلم أكشن، يتضمن مشهد مطاردة مبدئي.",
+      "content": "<p class=\"format-heading1\">خارجي. طريق سريع - نهار</p><p class=\"format-action\">سيارة رياضية حمراء تسرع بشكل جنوني، تتفادى السيارات الأخرى بصعوبة. تتبعها سيارة دفع رباعي سوداء ضخمة.</p><p class=\"format-character\">البطل</p><p class=\"format-dialogue\">ليس اليوم.</p>"
+    },
+    {
+      "id": "tpl_drama_01",
+      "name": "قالب دراما",
+      "description": "قالب لدراما عائلية، يتضمن مشهد حوار مشحون بالعواطف.",
+      "content": "<p class=\"format-heading1\">داخلي. غرفة معيشة - ليل</p><p class=\"format-action\">الغرفة شبه مظلمة، المطر يطرق على النافذة. شخصيتان تجلسان في صمت متوتر.</p><p class=\"format-character\">الأم</p><p class=\"format-dialogue\">كنت أعرف دائمًا أن هذا سيحدث.</p><p class=\"format-character\">الابن</p><p class=\"format-dialogue\">ولماذا لم تقولي أي شيء؟</p>"
+    },
+    {
+      "id": "tpl_comedy_01",
+      "name": "قالب كوميدي",
+      "description": "قالب لمشهد كوميدي، يعتمد على سوء فهم مضحك.",
+      "content": "<p class=\"format-heading1\">داخلي. مقهى - نهار</p><p class=\"format-action\">شخص يجلس في المقهى، يرتدي سماعات رأس ضخمة، ويغني بصوت عالٍ بشكل فظيع معتقدًا أن لا أحد يسمعه.</p><p class=\"format-character\">نادلة</p><p class=\"format-parenthetical\">(مترددة)</p><p class=\"format-dialogue\">هل... هل تحتاج إلى المزيد من السكر؟</p>"
+    },
+    {
+      "id": "tpl_romance_01",
+      "name": "قالب رومانسي",
+      "description": "قالب لمشهد رومانسي، لقاء أول في مكان غير متوقع.",
+      "content": "<p class=\"format-heading1\">خارجي. حديقة عامة - مساء</p><p class=\"format-action\">شخصان يحاولان الإمساك بنفس الكتاب الذي سقط من على رف مكتبة متنقلة في الحديقة. تتلامس أيديهما.</p><p class=\"format-character\">الشخصية أ</p><p class=\"format-dialogue\">أوه... آسف.</p><p class=\"format-character\">الشخصية ب</p><p class=\"format-dialogue\">لا، أنا الذي يجب أن أعتذر. تفضل.</p>"
+    }
+  ]
+}
