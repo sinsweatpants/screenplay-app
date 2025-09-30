@@ -1,0 +1,173 @@
+/* === Root Variables for Theming === */
+:root {
+    --toolbar-bg: #f8f9fa;
+    --toolbar-border-color: #dee2e6;
+    --toolbar-item-bg: #ffffff;
+    --toolbar-item-hover-bg: #e9ecef;
+    --toolbar-item-focus-ring: #86b7fe;
+    --toolbar-text-color: #212529;
+    --toolbar-icon-color: #495057;
+    --toolbar-dropdown-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode {
+    --toolbar-bg: #1f2937;
+    --toolbar-border-color: #374151;
+    --toolbar-item-bg: #374151;
+    --toolbar-item-hover-bg: #4b5563;
+    --toolbar-item-focus-ring: #60a5fa;
+    --toolbar-text-color: #f9fafb;
+    --toolbar-icon-color: #d1d5db;
+}
+
+/* === Sidebar & Toolbar General Styling === */
+.left-sidebar,
+.right-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    background-color: var(--toolbar-bg);
+    border-color: var(--toolbar-border-color);
+    padding: 0.5rem;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+}
+
+.left-sidebar {
+    border-left-width: 1px;
+    border-right-width: 0;
+}
+
+.right-sidebar {
+    border-right-width: 1px;
+    border-left-width: 0;
+}
+
+/* RTL Support */
+[dir="rtl"] .left-sidebar {
+    border-right-width: 1px;
+    border-left-width: 0;
+}
+
+[dir="rtl"] .right-sidebar {
+    border-left-width: 1px;
+    border-right-width: 0;
+}
+
+/* === Toolbar Item & Dropdown Styling === */
+.toolbar-item.dropdown {
+    margin-bottom: 0.5rem;
+    border-radius: 0.375rem;
+    background-color: var(--toolbar-item-bg);
+    border: 1px solid var(--toolbar-border-color);
+}
+
+.toolbar-item .toolbar-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: transparent;
+    border: none;
+    color: var(--toolbar-text-color);
+    font-weight: 500;
+    text-align: right;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+/* RTL Support */
+[dir="rtl"] .toolbar-item .toolbar-btn {
+    text-align: left;
+}
+
+.toolbar-item .toolbar-btn::after {
+    content: '▶';
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+/* RTL Support */
+[dir="rtl"] .toolbar-item .toolbar-btn::after {
+    content: '◀';
+}
+
+.toolbar-item .toolbar-btn[aria-expanded="true"]::after {
+    transform: rotate(90deg);
+}
+
+/* High-contrast focus and hover states */
+.toolbar-item .toolbar-btn:hover {
+    background-color: var(--toolbar-item-hover-bg);
+}
+
+.toolbar-item .toolbar-btn:focus-visible {
+    outline: 2px solid transparent;
+    box-shadow: 0 0 0 2px var(--toolbar-item-focus-ring);
+    z-index: 10;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+    display: none;
+    padding: 0.5rem;
+    border-top: 1px solid var(--toolbar-border-color);
+    background-color: var(--toolbar-bg);
+}
+
+.toolbar-item .toolbar-btn[aria-expanded="true"] + .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    color: var(--toolbar-text-color);
+    text-align: right;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* RTL Support */
+[dir="rtl"] .dropdown-menu button {
+    text-align: left;
+}
+
+.dropdown-menu button:hover {
+    background-color: var(--toolbar-item-hover-bg);
+    border-color: var(--toolbar-border-color);
+}
+
+.dropdown-menu button:focus-visible {
+    outline: none;
+    border-color: var(--toolbar-item-focus-ring);
+    box-shadow: 0 0 0 2px var(--toolbar-item-focus-ring);
+}
+
+/* === Media Queries for Smaller Screens === */
+@media (max-width: 768px) {
+    .left-sidebar,
+    .right-sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 50vh;
+        border: none;
+        border-bottom: 1px solid var(--toolbar-border-color);
+    }
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    /* Convert dropdowns to accordion style */
+    .toolbar-item.dropdown {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "screenplay-app",
+  "version": "1.0.0",
+  "description": "تطبيق احترافي لكتابة السيناريوهات السينمائية والدرامية",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": ["screenplay", "writing", "cinema", "arabic"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chart.js": "^4.4.1",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.8.2"
+  },
+  "devDependencies": {
+    "vite": "^5.0.10",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1"
+  }
+}

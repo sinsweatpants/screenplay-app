@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق كتابة السيناريو | محرر احترافي</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="تطبيق ويب متكامل واحترافي لكتابة السيناريوهات السينمائية والدرامية مع أدوات تحليلية ومساعد ذكاء اصطناعي.">
+    <meta name="keywords" content="كتابة سيناريو, محرر نصوص, سيناريو, أفلام, مسلسلات, إبداع, كتابة إبداعية, ذكاء اصطناعي">
+    <meta name="author" content="Jules - AI Software Engineer">
+
+    <!-- Open Graph Meta Tags (for social sharing) -->
+    <meta property="og:title" content="تطبيق كتابة السيناريو الاحترافي">
+    <meta property="og:description" content="حوّل أفكارك إلى سيناريوهات جاهزة للإنتاج مع محررنا الذكي والمتكامل.">
+    <meta property="og:image" content="assets/images/og-image.png">
+    <meta property="og:url" content="https://your-app-url.com">
+    <meta property="og:type" content="website">
+
+    <!-- PWA (Progressive Web App) Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#111827">
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <!-- Vite will handle CSS imports -->
+    <link rel="stylesheet" href="css/toolbars.css">
+    
+    <!-- Single entry point for Vite -->
+    <script type="module" src="/js/main-simple.js"></script>
+
+</head>
+<body class="light-mode">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="spinner"></div>
+        <p>جاري تحميل التطبيق...</p>
+    </div>
+
+    <!-- Main Application Wrapper -->
+    <div id="app-wrapper" class="app-wrapper" style="display: none;">
+
+        <!-- Top Bar -->
+        <header id="top-bar" class="top-bar">
+            <div class="top-bar-left">
+                <div class="logo">📝</div>
+                <h1 id="document-title" class="document-title" contenteditable="true">سيناريو بدون عنوان</h1>
+            </div>
+            <div class="top-bar-center">
+                <span id="save-status" class="save-status" aria-live="polite">تم حفظ جميع التغييرات</span>
+            </div>
+            <div class="top-bar-right">
+                <button id="theme-toggle" class="btn btn-icon" aria-label="تبديل الوضع">🌙</button>
+            </div>
+        </header>
+        
+
+        <!-- Main Content Area -->
+        <main id="main-content" class="main-content">
+
+            <!-- Left Sidebar - Quick Tools -->
+            <aside id="left-sidebar" class="left-sidebar">
+                <nav role="navigation" aria-label="Left Toolbar">
+                    <!-- 7. Character Management -->
+                    <div class="toolbar-item dropdown">
+                        <button class="toolbar-btn" aria-expanded="false">👥 إدارة الشخصيات</button>
+                        <div class="dropdown-menu">
+                            <button data-action="character-profiles">📄 ملفات الشخصيات</button>
+                            <button data-action="relationships">🔗 تحليل العلاقات</button>
+                            <button data-action="character-arcs">🌌 Character Arcs</button>
+                            <button data-action="dialogue-patterns">💬 أنماط الحوار</button>
+                            <button data-action="voice-analysis">🎤 تحليل الصوت</button>
+                            <button data-action="casting-ideas">🎭 أفكار الممثلين</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 8. Project Manager -->
+                    <div class="toolbar-item dropdown">
+                        <button class="toolbar-btn" aria-expanded="false">📁 مدير المشاريع</button>
+                        <div class="dropdown-menu">
+                            <button data-action="multi-projects">📂 مشاريع متعددة</button>
+                            <button data-action="templates">🎨 قوالب جاهزة</button>
+                            <button data-action="versioning">🔄 نظا�� الإصدارات</button>
+                            <button data-action="auto-backup">💾 نسخ تلقائية</button>
+                            <button data-action="import-export">🔄 استيراد/تصدير</button>
+                            <button data-action="project-history">📅 تاريخ المشروع</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 9. AI Writing Assistant -->
+                    <div class="toolbar-item dropdown">
+                        <button class="toolbar-btn" aria-expanded="false">🤖 مساعد الذكاء الاصطناعي</button>
+                        <div class="dropdown-menu">
+                            <button data-action="claude-api">🌐 Claude API</button>
+                            <button data-action="content-generators">✨ مولدات المحتوى</button>
+                            <button data-action="text-improvement">🔧 تحسين النصوص</button>
+                            <button data-action="text-analysis">🔍 تحليل النصوص</button>
+                            <button data-action="auto-suggestions">💡 اقتراحات تلقائية</button>
+                            <button data-action="ai-templates">📄 قوالب ذكية</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 10. Search & Validation -->
+                    <div class="toolbar-item dropdown">
+                        <button class="toolbar-btn" aria-expanded="false">🔍 بحث وتحقق</button>
+                        <div class="dropdown-menu">
+                            <button data-action="semantic-search">🎯 بحث دلالي</button>
+                            <button data-action="advanced-search">🔍 بحث متقدم</button>
+                            <button data-action="script-validator">✅ مدقق السيناريو</button>
+                            <button data-action="structure-check">🏗️ فحص البنية</button>
+                            <button data-action="consistency-check">🔄 فحص الاتساق</button>
+                            <button data-action="auto-corrections">🔧 تصحيح تلقائي</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 11. Collaboration System -->
+                    <div class="toolbar-item dropdown">
+                        <button class="toolbar-btn" aria-expanded="false">👥 نظام التعاون</button>
+                        <div class="dropdown-menu">
+                            <button data-action="team-collab">👥 تعاون جماعي</button>
+                            <button data-action="permissions">🔐 إدارة الصلاحيات</button>
+                            <button data-action="comments">💬 نظام التعليقات</button>
+                            <button data-action="change-tracking">🔄 تتبع التغييرات</button>
+                            <button data-action="version-control">📅 إدارة الإصدارات</button>
+                            <button data-action="mentions">📢 إشارات المستخدمين</button>
+                        </div>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Editor Area -->
+            <div id="editor-container" class="editor-container">
+                <div id="horizontal-ruler" class="ruler horizontal"></div>
+                <div id="vertical-ruler" class="ruler vertical"></div>
+                <div id="editor" class="editor" contenteditable="true" spellcheck="false" aria-label="محرر السيناريو"></div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <aside id="right-sidebar" class="right-sidebar">
+                <nav role="navigation" aria-label="Right Toolbar">
+                    <!-- 1. Integrated System -->
+                    <div class="toolbar-item dropdown">
+                        <button class="toolbar-btn" aria-expanded="false">🏠 النظام المتكامل</button>
+                        <div class="dropdown-menu">
+                            <button data-action="event-bus">📡 Event Bus</button>
+                            <button data-action="state-management">📋 إدارة الحالة</button>
+                            <button data-action="notifications">🔔 الإشعارات</button>
+                            <button data-action="performance">⚡ مراقبة الأداء</button>
+                            <button data-action="backup">💾 نظام النسخ</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 2. Utility Functions -->
+                    <div class="toolbar-item dropdown">
+                        <button class="toolbar-btn" aria-expanded="false">🔧 الوظائف المساعدة</button>
+                        <div class="dropdown-menu">
+                            <button data-action="storage">💾 إدارة التخزين</button>
+                            <button data-action="keyboard">⌨️ اختصارات المفاتيح</button>
+                            <button data-action="export-basic">📤 تصدير أساسي</button>
+                            <button data-action="notification-mgr">📬 مدير الإشعارات</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 3. Professional Export -->
+                    <div class="toolbar-item dropdown">
+                        <button class="toolbar-btn" aria-expanded="false">📦 تصدير احترافي</button>
+                        <div class="dropdown-menu">
+                            <button data-action="export-pdf">📄 PDF احترافي</button>
+                            <button data-action="export-docx">📝 DOCX</button>
+                            <button data-action="export-html">🌐 HTML</button>
+                            <button data-action="batch-export">📦 تصدير دفعي</button>
+                            <button data-action="cloud-export">☁️ تصدير سحابي</button>
+                            <button data-action="custom-templates">🎨 قوالب مخصصة</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 4. Enhanced Functions -->
+                    <div class="toolbar-item dropdown">
+                        <button class="toolbar-btn" aria-expanded="false">📁 وظائف متقدمة</button>
+                        <div class="dropdown-menu">
+                            <button data-action="read-txt">📋 قراءة TXT</button>
+                            <button data-action="read-rtf">📃 قراءة RTF</button>
+                            <button data-action="read-docx">�� قراءة DOCX</button>
+                            <button data-action="ai-classify">🤖 تصنيف ذكي</button>
+                            <button data-action="text-extract">🔍 استخراج النصوص</button>
+                            <button data-action="large-files">📀 ملفات كبيرة 50MB</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 5. Analytics Engine -->
+                    <div class="toolbar-item dropdown">
+                        <button class="toolbar-btn" aria-expanded="false">📈 محرك التحليلات</button>
+                        <div class="dropdown-menu">
+                            <button data-action="structure-analysis">🏗️ تحليل البنية</button>
+                            <button data-action="character-analysis">👤 تحليل الشخصيات</button>
+                            <button data-action="timing-analysis">⏰ تحليل التوقيت</button>
+                            <button data-action="quality-assessment">⭐ تقييم الجودة</button>
+                            <button data-action="live-stats">📊 إحصائيات مباشرة</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 6. Visual Planning -->
+                    <div class="toolbar-item dropdown">
+                        <button class="toolbar-btn" aria-expanded="false">🎨 التخطيط البصري</button>
+                        <div class="dropdown-menu">
+                            <button data-action="structure-charts">📉 Structure Charts</button>
+                            <button data-action="pacing-graphs">⚡ Pacing Graphs</button>
+                            <button data-action="character-networks">🕸️ Character Networks</button>
+                            <button data-action="emotional-curves">💭 Emotional Curves</button>
+                            <button data-action="theme-clouds">☁️ Theme Clouds</button>
+                            <button data-action="storyboards">🎦 Storyboards</button>
+                        </div>
+                    </div>
+                </nav>
+            </aside>
+        </main>
+
+        <!-- Bottom Status Bar -->
+        <footer id="status-bar" class="status-bar">
+            <div class="status-left">
+                <span id="word-count">كلمات: 0</span> |
+                <span id="page-count">صفحات: 0</span> |
+                <span id="char-count">حروف: 0</span>
+            </div>
+            <div class="status-right">
+                <span id="current-format">التنسيق الحالي: فعل</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Modals Container -->
+    <div id="modals-container">
+        <!-- Modals will be dynamically injected here -->
+    </div>
+
+    <!-- Error Boundary -->
+    <div id="error-boundary" class="error-boundary" style="display: none;">
+        <h2>عفوًا، حدث خطأ ما.</h2>
+        <p>يرجى إعادة تحميل الصفحة والمحاولة مرة أخرى.</p>
+        <button onclick="window.location.reload()">إعادة تحميل</button>
+    </div>
+</body>
+</html>

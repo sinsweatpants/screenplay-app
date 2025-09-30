@@ -1,0 +1,142 @@
+/* Main Toolbar - 11 Components */
+.main-toolbar {
+    display: flex;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 8px 16px;
+    gap: 4px;
+    overflow-x: auto;
+    flex-wrap: wrap;
+}
+
+.toolbar-item {
+    position: relative;
+    display: inline-block;
+}
+
+.toolbar-btn {
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s;
+    color: #333;
+}
+
+.toolbar-btn:hover {
+    background: #e9ecef;
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 200px;
+    z-index: 1000;
+    padding: 8px;
+    margin-top: 4px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    margin: 2px 0;
+    border: none;
+    background: transparent;
+    text-align: right;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s;
+    color: #333;
+}
+
+.dropdown-menu button:hover {
+    background: #f5f5f5;
+    color: #007bff;
+}
+
+.dropdown-menu button:active {
+    background: #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-toolbar {
+        flex-wrap: wrap;
+        padding: 4px 8px;
+    }
+    
+    .toolbar-btn {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+    
+    .dropdown-menu {
+        min-width: 180px;
+    }
+}
+
+/* Dark Mode */
+.dark-mode .main-toolbar {
+    background: #2d2d2d;
+    border-color: #444;
+}
+
+.dark-mode .toolbar-btn {
+    background: #404040;
+    border-color: #555;
+    color: #fff;
+}
+
+.dark-mode .toolbar-btn:hover {
+    background: #555;
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.dark-mode .dropdown-menu {
+    background: #2d2d2d;
+    border-color: #444;
+}
+
+.dark-mode .dropdown-menu button {
+    color: #fff;
+}
+
+.dark-mode .dropdown-menu button:hover {
+    background: #404040;
+    color: #007bff;
+}
+
+.dark-mode .dropdown-menu button:active {
+    background: #555;
+}
+
+/* Animation */
+.dropdown-menu {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+}
